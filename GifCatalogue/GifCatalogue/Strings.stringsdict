@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL_HOST</key>
+	<string>https://api.giphy.com</string>
+	<key>URL_PATH</key>
+	<string>/v1/gifs/search</string>
+	<key>URL_API_KEY</key>
+	<string>api_key=</string>
+	<key>URL_QUERY</key>
+	<string>q=</string>
+	<key>URL_LIMIT</key>
+	<string>limit=</string>
+	<key>URL_OFFSET</key>
+	<string>offset=</string>
+	<key>URL_RATING</key>
+	<string>rating=</string>
+	<key>URL_LANGUAGE</key>
+	<string>lang=</string>
+	<key>URL_FORMAT</key>
+	<string>fmt=</string>
+</dict>
+</plist>

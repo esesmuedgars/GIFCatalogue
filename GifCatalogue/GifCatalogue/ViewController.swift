@@ -10,10 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+	@IBOutlet weak var imageView: UIImageView! // TODO: Remove outlet
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		GifImage.download { gifs in
-			print(gifs)
+		GifImage.download(forResult: "test robot") { gifImageURLStrings in
+			self.imageView.image = UIImage.gifImageFrom(gifImageURLStrings.first!) // FIXME: Replace placeholder image url & input string
 		}
 	}
 }

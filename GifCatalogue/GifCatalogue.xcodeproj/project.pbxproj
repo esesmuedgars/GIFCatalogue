@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A505F41720173C1700056547 /* Strings.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = A505F41620173C1700056547 /* Strings.stringsdict */; };
+		A505F41920173E4D00056547 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = A505F41820173E4D00056547 /* Config.plist */; };
+		A505F41B2017494A00056547 /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = A505F41A2017494A00056547 /* Aliases.swift */; };
+		A505F41D20177E4200056547 /* ExtensionForGifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A505F41C20177E4200056547 /* ExtensionForGifImage.swift */; };
 		A5319FA12010EBE4006401B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5319FA02010EBE4006401B8 /* AppDelegate.swift */; };
 		A5319FA32010EBE4006401B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5319FA22010EBE4006401B8 /* ViewController.swift */; };
 		A5319FA62010EBE4006401B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5319FA42010EBE4006401B8 /* Main.storyboard */; };
@@ -27,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A505F41620173C1700056547 /* Strings.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Strings.stringsdict; sourceTree = "<group>"; };
+		A505F41820173E4D00056547 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		A505F41A2017494A00056547 /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
+		A505F41C20177E4200056547 /* ExtensionForGifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionForGifImage.swift; sourceTree = "<group>"; };
 		A5319F9D2010EBE4006401B8 /* GifCatalogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifCatalogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5319FA02010EBE4006401B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5319FA22010EBE4006401B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,11 +89,15 @@
 			children = (
 				A5319FA02010EBE4006401B8 /* AppDelegate.swift */,
 				A5319FA22010EBE4006401B8 /* ViewController.swift */,
-				A5319FA42010EBE4006401B8 /* Main.storyboard */,
-				A5319FA72010EBE4006401B8 /* Assets.xcassets */,
-				A5319FA92010EBE4006401B8 /* LaunchScreen.storyboard */,
-				A5319FAC2010EBE4006401B8 /* Info.plist */,
 				A586EE85201631B900530BE2 /* GifImageModule.swift */,
+				A505F41C20177E4200056547 /* ExtensionForGifImage.swift */,
+				A505F41A2017494A00056547 /* Aliases.swift */,
+				A505F41620173C1700056547 /* Strings.stringsdict */,
+				A505F41820173E4D00056547 /* Config.plist */,
+				A5319FAC2010EBE4006401B8 /* Info.plist */,
+				A5319FA42010EBE4006401B8 /* Main.storyboard */,
+				A5319FA92010EBE4006401B8 /* LaunchScreen.storyboard */,
+				A5319FA72010EBE4006401B8 /* Assets.xcassets */,
 			);
 			path = GifCatalogue;
 			sourceTree = "<group>";
@@ -182,8 +194,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A505F41720173C1700056547 /* Strings.stringsdict in Resources */,
 				A5319FAB2010EBE4006401B8 /* LaunchScreen.storyboard in Resources */,
 				A5319FA82010EBE4006401B8 /* Assets.xcassets in Resources */,
+				A505F41920173E4D00056547 /* Config.plist in Resources */,
 				A5319FA62010EBE4006401B8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,6 +218,8 @@
 			files = (
 				A586EE86201631B900530BE2 /* GifImageModule.swift in Sources */,
 				A5319FA32010EBE4006401B8 /* ViewController.swift in Sources */,
+				A505F41B2017494A00056547 /* Aliases.swift in Sources */,
+				A505F41D20177E4200056547 /* ExtensionForGifImage.swift in Sources */,
 				A5319FA12010EBE4006401B8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
