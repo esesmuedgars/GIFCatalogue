@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AlNile.ttc">
+            <string>AlNile-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -18,20 +23,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbE-hN-4s8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" text="" placeholder="Browse your favourite gifs" translatesAutoresizingMaskIntoConstraints="NO" id="BO9-oR-NvR">
+                                        <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" keyboardAppearance="alert" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="ea0-i4-poc"/>
+                                        </connections>
+                                    </searchBar>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GIF CATALOGUE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uij-uz-H86">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="0aG-7j-oLe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AlNile-Bold" family="Al Nile" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="BO9-oR-NvR" firstAttribute="top" secondItem="uij-uz-H86" secondAttribute="bottom" id="DzJ-wy-6yd"/>
+                                    <constraint firstAttribute="bottom" secondItem="BO9-oR-NvR" secondAttribute="bottom" id="Ep0-Mr-RoA"/>
+                                    <constraint firstItem="uij-uz-H86" firstAttribute="leading" secondItem="nbE-hN-4s8" secondAttribute="leading" id="GKY-5v-I3u"/>
+                                    <constraint firstItem="BO9-oR-NvR" firstAttribute="leading" secondItem="nbE-hN-4s8" secondAttribute="leading" id="Iv4-hh-KXa"/>
+                                    <constraint firstAttribute="trailing" secondItem="BO9-oR-NvR" secondAttribute="trailing" id="ftT-C2-0KT"/>
+                                    <constraint firstAttribute="trailing" secondItem="uij-uz-H86" secondAttribute="trailing" id="fuv-0v-FpZ"/>
+                                    <constraint firstAttribute="height" constant="120" id="g4J-KK-XfV"/>
+                                </constraints>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y2z-KT-0dS">
                                 <rect key="frame" x="67" y="269" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.31764705879999999" green="0.64313725489999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nbE-hN-4s8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ELc-EN-Y1j"/>
+                            <constraint firstItem="nbE-hN-4s8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GCc-BJ-xuH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nbE-hN-4s8" secondAttribute="trailing" id="sxm-Is-1I4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="y2z-KT-0dS" id="P4q-jG-0ur"/>
+                        <outlet property="searchBar" destination="BO9-oR-NvR" id="9VN-PC-78n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="33.733133433283363"/>
         </scene>
     </scenes>
 </document>
