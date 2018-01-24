@@ -17,6 +17,7 @@
 		A5319FA82010EBE4006401B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5319FA72010EBE4006401B8 /* Assets.xcassets */; };
 		A5319FAB2010EBE4006401B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5319FA92010EBE4006401B8 /* LaunchScreen.storyboard */; };
 		A5319FB62010EBE4006401B8 /* GifCatalogueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5319FB52010EBE4006401B8 /* GifCatalogueTests.swift */; };
+		A5390C5320187A4900EC59E0 /* GifImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5390C5220187A4900EC59E0 /* GifImageCell.swift */; };
 		A586EE86201631B900530BE2 /* GifImageModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586EE85201631B900530BE2 /* GifImageModule.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		A5319FB12010EBE4006401B8 /* GifCatalogueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GifCatalogueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5319FB52010EBE4006401B8 /* GifCatalogueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifCatalogueTests.swift; sourceTree = "<group>"; };
 		A5319FB72010EBE4006401B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5390C5220187A4900EC59E0 /* GifImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImageCell.swift; sourceTree = "<group>"; };
 		A586EE85201631B900530BE2 /* GifImageModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImageModule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 				A5319FA22010EBE4006401B8 /* ViewController.swift */,
 				A586EE85201631B900530BE2 /* GifImageModule.swift */,
 				A505F41C20177E4200056547 /* ExtensionForGifImage.swift */,
+				A5390C5220187A4900EC59E0 /* GifImageCell.swift */,
 				A505F41A2017494A00056547 /* Aliases.swift */,
 				A505F41620173C1700056547 /* Strings.stringsdict */,
 				A505F41820173E4D00056547 /* Config.plist */,
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5390C5320187A4900EC59E0 /* GifImageCell.swift in Sources */,
 				A586EE86201631B900530BE2 /* GifImageModule.swift in Sources */,
 				A5319FA32010EBE4006401B8 /* ViewController.swift in Sources */,
 				A505F41B2017494A00056547 /* Aliases.swift in Sources */,
