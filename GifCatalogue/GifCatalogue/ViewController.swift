@@ -49,12 +49,10 @@ extension ViewController: UISearchBarDelegate {
                 GifImage.download(forResult: searching, withOffset: self.images.count) { gifImageURLStrings in
                     for url in gifImageURLStrings {
                         self.images.append(UIImage.gifImageFrom(url))
-                        print("Image count: \(self.images.count)")
                         DispatchQueue.main.async {
                             self.collectionView.reloadData()
                         }
                     }
-                    print("Done loading, item count: \(self.images.count)")
                     self.loaded = true
                 }
             }

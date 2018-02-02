@@ -22,7 +22,6 @@ struct GifImage {
             let URLString = "\(URLStringsDictionary["URL_HOST"]!)\(URLStringsDictionary["URL_PATH"]!)?\(URLStringsDictionary["URL_QUERY"]!)\(queryString.replacingOccurrences(of: " ", with: "+"))&\(URLStringsDictionary["URL_LIMIT"]!)20&\(URLStringsDictionary["URL_OFFSET"]!)\(offsetInt)&\(URLStringsDictionary["URL_API_KEY"]!)\(configDictionary["API_KEY"]!)"
 			let url = URL(string: URLString)!
 			
-            print("Searching for \(queryString)")
 			let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
 				do {
 					guard let data = data, error == nil else {
