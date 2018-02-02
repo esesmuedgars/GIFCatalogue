@@ -3,6 +3,7 @@
 //  GifCatalogue
 //
 //  Created by Arne Bahlo on 07.06.14.
+//  github.com/bahlo/SwiftGif
 //  Copyright (c) 2014 Arne Bahlo. All rights reserved.
 //
 

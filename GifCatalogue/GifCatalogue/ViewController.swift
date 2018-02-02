@@ -13,77 +13,84 @@ class ViewController: UIViewController {
 	@IBOutlet weak var searchBar: UISearchBar!
 	@IBOutlet weak var collectionView: UICollectionView!
 	
-	var images = [UIImage?]()
-	
+    var images = [UIImage?]()
+    var searchString: String?
+    var loaded = false
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+        collectionView.addGestureRecognizer(tapGesture)
 	}
+    
+    @objc func hideKeyboard() {
+        searchBar.endEditing(true)
+    }
 }
 
 // - MARK: UISearchBarDelegate
 extension ViewController: UISearchBarDelegate {
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//		if !searchText.isEmpty {
-//			GifImage.download(forResult: searchText) { gifImageURLStrings in
-//				self.images.removeAll()
-//				for url in gifImageURLStrings {
-//					self.images.append(UIImage.gifImageFrom(url))
-//				}
-//				self.collectionView.reloadData()
-//			}
-//		}
-		
-//		NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.fireRequest), object: nil)
-//
-//		DispatchQueue.main.asyncAfter(deadline: .now() + .miliseconds(500)) {
-//			self.fireRequest()
-//		}
-		
-		NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.reload), object: nil)
-		self.perform(#selector(self.reload(txt:)), with: searchText, afterDelay: 0.5)
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.search), object: nil)
+        searchString = searchText
+        images.removeAll()
+        self.perform(#selector(self.search), with: nil, afterDelay: 0.5)
 	}
-	
-	@objc func reload(txt: String) {
-		print("👋🏼")
-		GifImage.download(forResult: txt) { gifImageURLStrings in
-			self.images.removeAll()
-			for url in gifImageURLStrings {
-				self.images.append(UIImage.gifImageFrom(url))
-			}
-			self.collectionView.reloadData()
-		}
-	}
-	
-//	@objc func fireRequest() {
-//		print("FIRE! -1")
-////				if !searchText.isEmpty {
-//					GifImage.download(forResult: searchText) { gifImageURLStrings in
-//						self.images.removeAll()
-//						for url in gifImageURLStrings {
-//							self.images.append(UIImage.gifImageFrom(url))
-//						}
-//						self.collectionView.reloadData()
-//					}
-////				}
-//	}
+    
+    @objc func search() {
+        loaded = false
+        
+        guard let searching = searchString else {
+            return
+        }
+        
+        if !searching.isEmpty {
+            DispatchQueue.global(qos: .userInitiated).async {
+                GifImage.download(forResult: searching, withOffset: self.images.count) { gifImageURLStrings in
+                    for url in gifImageURLStrings {
+                        self.images.append(UIImage.gifImageFrom(url))
+                        print("Image count: \(self.images.count)")
+                        DispatchQueue.main.async {
+                            self.collectionView.reloadData()
+                        }
+                    }
+                    print("Done loading, item count: \(self.images.count)")
+                    self.loaded = true
+                }
+            }
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
 }
 
 // - MARK: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return images.count
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GifImageCell", for: indexPath) as? GifImageCell {
-			cell.configureCellWith(gifImage: images[indexPath.row])
-			return cell
+            cell.configureCellWith(gifImage: images[indexPath.row])
+            return cell
 		} else {
 			return UICollectionViewCell()
 		}
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: 100, height: 100)
-	}
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenWidth = UIScreen.main.bounds.width
+        let size = screenWidth / 2 - 13
+        
+        return CGSize(width: size, height: size)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == images.count - 1 && loaded {
+            search()
+        }
+    }
 }
