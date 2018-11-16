@@ -8,11 +8,11 @@
 
 import UIKit
 
-class GifImageCell: UICollectionViewCell {
+class GIFCell: UICollectionViewCell {
 	
-	@IBOutlet weak var gifImageView: UIImageView!
+	@IBOutlet weak var imageView: UIImageView!
 	
-	func configureCellWith(gifImage: UIImage?) {
-		gifImageView.image = gifImage
+	func configure(image: UIImage?) {
+		imageView.image = image
 	}
 }

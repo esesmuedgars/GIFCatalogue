@@ -1,10 +1,11 @@
 //
-//  ExtensionForGifImage.swift
+//  UIImage+Extension.swift
 //  GifCatalogue
 //
 //  Created by Arne Bahlo on 07.06.14.
-//  github.com/bahlo/SwiftGif
 //  Copyright (c) 2014 Arne Bahlo. All rights reserved.
+//
+//  github.com/bahlo/SwiftGif
 //
 
 import UIKit
@@ -12,20 +13,15 @@ import ImageIO
 
 extension UIImage {
 	
-	public class func gifImageFrom(_ urlString: String) -> UIImage? {
-		guard let url = URL(string: urlString) else {
-			return nil
-		}
+	public class func gifImage(url string: String) -> UIImage? {
+		if let url = URL(string: string),
+            let data = try? Data(contentsOf: url),
+            let source = CGImageSourceCreateWithData(data as CFData, nil) {
 		
-		guard let data = try? Data(contentsOf: url) else {
-			return nil
-		}
-		
-		guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
-			return nil
-		}
-		
-		return UIImage.animatedImageWithSource(source)
+            return UIImage.animatedImageWithSource(source)
+        }
+
+        return nil
 	}
 	
 	internal class func delayForImageAtIndex(_ index: Int, source: CGImageSource!) -> Double {
