@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		724D3B0421A09EDA0004F670 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724D3B0321A09EDA0004F670 /* RxSwift.framework */; };
+		724D3B0721A0B2510004F670 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724D3B0621A0B2510004F670 /* RxCocoa.framework */; };
 		725709C9219F71A400C6B357 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725709C8219F71A400C6B357 /* AppViewModel.swift */; };
 		725709CB219F744300C6B357 /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725709CA219F744300C6B357 /* URLRequest+Extension.swift */; };
 		725709CD219F855700C6B357 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725709CC219F855700C6B357 /* Convenience.swift */; };
@@ -33,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		724D3B0321A09EDA0004F670 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		724D3B0621A0B2510004F670 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		725709C8219F71A400C6B357 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		725709CA219F744300C6B357 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
 		725709CC219F855700C6B357 /* Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
@@ -57,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				724D3B0721A0B2510004F670 /* RxCocoa.framework in Frameworks */,
+				724D3B0421A09EDA0004F670 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +76,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		724D3B0221A09EDA0004F670 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				724D3B0621A0B2510004F670 /* RxCocoa.framework */,
+				724D3B0321A09EDA0004F670 /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A5319F942010EBE4006401B8 = {
 			isa = PBXGroup;
 			children = (
 				A5319F9F2010EBE4006401B8 /* GifCatalogue */,
 				A5319FB42010EBE4006401B8 /* GifCatalogueTests */,
 				A5319F9E2010EBE4006401B8 /* Products */,
+				724D3B0221A09EDA0004F670 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +143,7 @@
 				A5319F992010EBE4006401B8 /* Sources */,
 				A5319F9A2010EBE4006401B8 /* Frameworks */,
 				A5319F9B2010EBE4006401B8 /* Resources */,
+				724D3B0521A09F260004F670 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -216,6 +233,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		724D3B0521A09F260004F670 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A5319F992010EBE4006401B8 /* Sources */ = {
@@ -389,6 +430,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RB8S8SFW6F;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = GifCatalogue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edgarsvanags.gifcatalogue.GifCatalogue;
@@ -404,6 +449,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RB8S8SFW6F;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = GifCatalogue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edgarsvanags.gifcatalogue.GifCatalogue;
