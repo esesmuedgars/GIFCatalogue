@@ -92,8 +92,7 @@ extension AppViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        // FIXME: broken 1 - 139 instantly
-        if indexPath.row == viewModel.numberOfItems() - 1 {
+        if indexPath.row == viewModel.numberOfItems() - 3 && viewModel.itemsLoaded {
             search()
         }
     }

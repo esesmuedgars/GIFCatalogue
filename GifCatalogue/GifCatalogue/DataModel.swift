@@ -12,12 +12,12 @@ struct GIPHYResponse: Codable {
     private var data: [GIPHYData]
 
     var urls: [String] {
-        return data.map { $0.image.preview.url }
+        return data.map { $0.images.preview.url }
     }
 }
 
 private struct GIPHYData: Codable {
-    var image: GIPHYImage
+    var images: GIPHYImage
 }
 
 private struct GIPHYImage: Codable {

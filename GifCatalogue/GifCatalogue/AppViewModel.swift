@@ -16,16 +16,21 @@ class AppViewModel {
 
     private let apiService: APIServiceProtocol
     private var images = [UIImage?]()
+    var itemsLoaded = false
 
     init(apiService: APIServiceProtocol = APIService()) {
         self.apiService = apiService
     }
 
     func fetch(query: String) {
+        itemsLoaded = false
+
         apiService.fetchGIFs(query: query, offset: images.count) { [weak self] response in
             for url in response.urls {
                 self?.insert(url)
             }
+
+            self?.itemsLoaded = true
         }
     }
 
