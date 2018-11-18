@@ -25,3 +25,12 @@ extension String {
         }
     }
 }
+
+extension Data {
+    init(url string: String) throws {
+        guard let url = URL(string: string) else {
+            throw "Unable to initiate URL structure from \(string)."
+        }
+        try self.init(contentsOf: url)
+    }
+}
