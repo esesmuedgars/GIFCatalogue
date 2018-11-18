@@ -24,7 +24,7 @@ private struct GIPHYImage: Codable {
     var preview: GIPHYPreview
 
     enum CodingKeys: String, CodingKey {
-        case preview = "preview_gif"
+        case preview = "fixed_width_downsampled"
     }
 }
 

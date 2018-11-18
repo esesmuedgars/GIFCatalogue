@@ -7,21 +7,21 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class AppViewController: UIViewController {
+final class AppViewController: UIViewController {
 
-	@IBOutlet private weak var searchBar: UISearchBar!
-	@IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var textField: UITextField!
+    @IBOutlet private weak var collectionView: UICollectionView!
 
     private lazy var viewModel = AppViewModel()
     private lazy var gestureRecognizer = UITapGestureRecognizer(target: self,
                                                                 action: #selector(self.dismissKeyboard))
-
-    private var searchText: String?
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+        
         addHandlers()
 	}
 
@@ -38,73 +38,40 @@ class AppViewController: UIViewController {
     }
 
     private func addHandlers() {
-        viewModel.insertData = { [weak self] indexPath in
-            mainThread {
-                self?.collectionView.insertItems(at: [indexPath])
-            }
-        }
-
-        viewModel.reloadData = { [weak self] in
-            mainThread {
-                self?.collectionView.reloadData()
-            }
-        }
+        textField.rx.text.orEmpty.skip(1)
+            .debounce(0.5, scheduler:  MainScheduler.instance)
+            .flatMap { [unowned self] query -> Observable<[Data]> in
+                if query.hasContent {
+                    return self.viewModel.fetch(query: query)
+                } else {
+                    return self.viewModel.clearItems()
+                }
+            }.bind(to: collectionView.rx.items(cellIdentifier: "GIFCell")) { (_, data, cell: GIFCell) in
+                cell.configure(data: data)
+            }.disposed(by: viewModel.disposeBag)
     }
     
     @objc
     private func dismissKeyboard() {
-        searchBar.endEditing(true)
+        textField.endEditing(true)
     }
 }
 
-extension AppViewController: UISearchBarDelegate {
-	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        NSObject.cancelPreviousPerformRequests(withTarget: self,
-                                               selector: #selector(self.search),
-                                               object: nil)
-        self.searchText = searchText
-        viewModel.clearItems()
-        self.perform(#selector(self.search), with: nil, afterDelay: 0.5)
-	}
-    
-    @objc
-    private func search() {
-        if let query = searchText, query.hasContent {
-            viewModel.fetch(query: query)
-        }
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        view.endEditing(true)
-    }
-}
+// MARK: Delegate
 
-extension AppViewController: UICollectionViewDataSource {
-	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return viewModel.numberOfItems()
-	}
-	
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GIFCell", for: indexPath) as! GIFCell
-        cell.configure(image: viewModel.item(indexPath))
-
-        return cell
-    }
-    
+extension AppViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == viewModel.numberOfItems() - 3 && viewModel.itemsLoaded {
-            search()
+        if indexPath.row == viewModel.numberOfItems() - 1 && viewModel.itemsLoaded {
+            textField.sendActions(for: .editingDidEnd)
         }
     }
 }
 
-extension AppViewController: UICollectionViewDelegate {}
+// MARK: DelegateFlowLayout
 
 extension AppViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // FIXME: investigate
-        let screenWidth = UIScreen.main.bounds.width
-        let size = screenWidth / 2 - 13
+        let size = (collectionView.frame.width - 10) / 2
 
         return CGSize(width: size, height: size)
     }

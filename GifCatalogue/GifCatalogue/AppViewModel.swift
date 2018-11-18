@@ -7,48 +7,48 @@
 //
 
 import Foundation
-import UIKit
+import RxSwift
 
-class AppViewModel {
+final class AppViewModel {
 
-    var insertData: ((IndexPath) -> Void)?
-    var reloadData: (() -> Void)?
+    private var apiService: APIServiceProtocol
+    lazy var disposeBag = DisposeBag()
 
-    private let apiService: APIServiceProtocol
-    private var images = [UIImage?]()
+    private let images: Variable<[Data]> = Variable([])
     var itemsLoaded = false
 
     init(apiService: APIServiceProtocol = APIService()) {
         self.apiService = apiService
     }
 
-    func fetch(query: String) {
+    func fetch(query: String) -> Observable<[Data]> {
         itemsLoaded = false
 
-        apiService.fetchGIFs(query: query, offset: images.count) { [weak self] response in
-            for url in response.urls {
-                self?.insert(url)
-            }
+        apiService.fetchGIFs(query: query, offset: images.value.count)
+            .map { [weak self] response in
+                for url in response.urls {
+                    if let data = try? Data(url: url) {
+                        self?.images.value.append(data)
+                    }
+                }
+            }.subscribe { [weak self] event in
+                self?.itemsLoaded = event.isCompleted
+            }.disposed(by: disposeBag)
 
-            self?.itemsLoaded = true
-        }
+        return images.asObservable()
     }
 
-    private func insert(_ string: String) {
-        images.append(UIImage.gifImage(url: string))
-        insertData?(IndexPath(row: images.count - 1, section: 0))
+    func item(_ indexPath: IndexPath) -> Data {
+        return images.value[indexPath.row]
     }
 
-    func item(_ indexPath: IndexPath) -> UIImage? {
-        return images[indexPath.row]
-    }
+    func clearItems() -> Observable<[Data]> {
+        images.value.removeAll()
 
-    func clearItems() {
-        images.removeAll()
-        reloadData?()
+        return images.asObservable()
     }
 
     func numberOfItems() -> Int {
-        return images.count
+        return images.value.count
     }
 }
