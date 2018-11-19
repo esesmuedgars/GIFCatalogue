@@ -18,18 +18,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GA3-Ck-sS1">
-                                <rect key="frame" x="10" y="130" width="355" height="527"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GA3-Ck-sS1">
+                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6iz-E6-Muc">
                                     <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
+                                <label key="backgroundView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are no GIF images to display." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E8m-3B-LIg">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GIFCell" id="ETF-Hq-sCD" customClass="GIFCell" customModule="GifCatalogue" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <rect key="frame" x="10" y="10" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -39,7 +46,7 @@
                                                     <rect key="frame" x="31.5" y="31.5" width="37" height="37"/>
                                                     <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </activityIndicatorView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rh7-kc-Idz" customClass="GIFImageView" customModule="Gifu">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rh7-kc-Idz">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
                                             </subviews>
@@ -68,50 +75,29 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PgX-bA-Fsf"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbE-hN-4s8">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GIF Catalogue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uij-uz-H86">
-                                        <rect key="frame" x="0.0" y="36.5" width="375" height="27.5"/>
-                                        <fontDescription key="fontDescription" name="AlNile" family="Al Nile" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Browse your favourite gifs" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xzz-0t-KLd">
-                                        <rect key="frame" x="20" y="82" width="335" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="xzz-0t-KLd" secondAttribute="bottom" constant="8" id="FRR-vx-rtO"/>
-                                    <constraint firstItem="uij-uz-H86" firstAttribute="leading" secondItem="nbE-hN-4s8" secondAttribute="leading" id="GKY-5v-I3u"/>
-                                    <constraint firstItem="xzz-0t-KLd" firstAttribute="top" secondItem="uij-uz-H86" secondAttribute="bottom" constant="18" id="Lm6-yq-XwF"/>
-                                    <constraint firstItem="xzz-0t-KLd" firstAttribute="top" secondItem="nbE-hN-4s8" secondAttribute="bottom" constant="-38" id="Wj6-j2-tyT"/>
-                                    <constraint firstItem="xzz-0t-KLd" firstAttribute="leading" secondItem="nbE-hN-4s8" secondAttribute="leading" constant="20" id="att-1z-kcK"/>
-                                    <constraint firstAttribute="trailing" secondItem="uij-uz-H86" secondAttribute="trailing" id="fuv-0v-FpZ"/>
-                                    <constraint firstAttribute="height" constant="120" id="g4J-KK-XfV"/>
-                                    <constraint firstAttribute="trailing" secondItem="xzz-0t-KLd" secondAttribute="trailing" constant="20" id="vNx-Fg-rUl"/>
-                                </constraints>
-                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Browse your favorite GIFs" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="J2A-Mf-0K7">
+                                <rect key="frame" x="15" y="35" width="345" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="search" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="nbE-hN-4s8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ELc-EN-Y1j"/>
-                            <constraint firstItem="nbE-hN-4s8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GCc-BJ-xuH"/>
-                            <constraint firstItem="GA3-Ck-sS1" firstAttribute="top" secondItem="nbE-hN-4s8" secondAttribute="bottom" constant="10" id="JCe-Pz-1fk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GA3-Ck-sS1" secondAttribute="trailing" constant="10" id="R6b-cN-yog"/>
-                            <constraint firstItem="GA3-Ck-sS1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="pdl-2c-hec"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nbE-hN-4s8" secondAttribute="trailing" id="sxm-Is-1I4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GA3-Ck-sS1" secondAttribute="bottom" constant="10" id="zCR-Bg-smh"/>
+                            <constraint firstItem="J2A-Mf-0K7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="2Vy-Qm-7jX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J2A-Mf-0K7" secondAttribute="trailing" constant="15" id="5TY-tu-ao6"/>
+                            <constraint firstItem="GA3-Ck-sS1" firstAttribute="top" secondItem="J2A-Mf-0K7" secondAttribute="bottom" constant="15" id="DyC-1C-Q6O"/>
+                            <constraint firstItem="J2A-Mf-0K7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="IZg-1d-Srt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GA3-Ck-sS1" secondAttribute="trailing" id="R6b-cN-yog"/>
+                            <constraint firstItem="GA3-Ck-sS1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pdl-2c-hec"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GA3-Ck-sS1" secondAttribute="bottom" id="zCR-Bg-smh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="GA3-Ck-sS1" id="Rxn-Vg-Jsi"/>
-                        <outlet property="textField" destination="xzz-0t-KLd" id="WeZ-ct-k1m"/>
+                        <outlet property="noDataLabel" destination="E8m-3B-LIg" id="Lzm-SZ-zJB"/>
+                        <outlet property="textField" destination="J2A-Mf-0K7" id="1yF-Vd-qgS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

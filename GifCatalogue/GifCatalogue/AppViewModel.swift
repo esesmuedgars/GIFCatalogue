@@ -11,37 +11,35 @@ import RxSwift
 
 final class AppViewModel {
 
-    private var apiService: APIServiceProtocol
-    lazy var disposeBag = DisposeBag()
+    private let apiService: APIServiceProtocol
+    private(set) lazy var disposeBag = DisposeBag()
+    private(set) lazy var didLoadItems = Bool()
 
-    private let images: Variable<[String]> = Variable([])
-    var itemsLoaded = false
+    private let images = Variable(Array<String>())
+    var observable: Observable<[String]> {
+        return images.asObservable()
+    }
 
     init(apiService: APIServiceProtocol = APIService()) {
         self.apiService = apiService
     }
 
     func fetch(query: String) -> Observable<[String]> {
-        itemsLoaded = false
+        didLoadItems = false
 
         apiService.fetchGIFs(query: query, offset: images.value.count)
             .map { [weak self] response in
-                for url in response.urls {
-                    self?.images.value.append(url)
-                }
+                self?.images.value.append(contentsOf: response.urls)
             }.subscribe { [weak self] event in
-                self?.itemsLoaded = event.isCompleted
+                self?.didLoadItems = event.isCompleted
             }.disposed(by: disposeBag)
 
         return images.asObservable()
     }
 
-    func item(_ indexPath: IndexPath) -> String {
-        return images.value[indexPath.row]
-    }
-
     func clearItems() -> Observable<[String]> {
         images.value.removeAll()
+        cache.removeAllObjects()
 
         return images.asObservable()
     }

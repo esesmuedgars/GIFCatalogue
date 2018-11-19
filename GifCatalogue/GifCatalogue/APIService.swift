@@ -16,15 +16,19 @@ protocol APIServiceProtocol {
 
 struct APIService: APIServiceProtocol {
 
-    private static var API_KEY: String {
+    private static var Key: String {
         return "XVROvtKUUF7ctQK9rZQgX54N9RiRY2V8"
+    }
+
+    private static var ItemLimit: Int {
+        return 10
     }
 
     func fetchGIFs(query: String, offset: Int) -> Observable<GIPHYResponse> {
         let request = URLRequest(with: [URLQueryItem(with: .query, value: query),
-                                        URLQueryItem(with: .limit, value: 10),
                                         URLQueryItem(with: .offset, value: offset),
-                                        URLQueryItem(with: .key, value: APIService.API_KEY)])
+                                        URLQueryItem(with: .limit, value: APIService.ItemLimit),
+                                        URLQueryItem(with: .key, value: APIService.Key)])
 
         return Observable<GIPHYResponse>.create { observer in
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in

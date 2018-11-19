@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 import UIKit
 
+let cache = NSCache<NSString, UIImage>()
+
 extension String: Error {}
 
 extension String: LocalizedError {
@@ -20,7 +22,7 @@ func mainThread(_ executable: @escaping () -> Void) {
     DispatchQueue.main.async(execute: executable)
 }
 
-func backgroundThread(qos: DispatchQoS.QoSClass, _ executable: @escaping () -> Void) {
+func backgroundThread(qos: DispatchQoS.QoSClass = .default, _ executable: @escaping () -> Void) {
     DispatchQueue.global(qos: qos).async(execute: executable)
 }
 
@@ -32,12 +34,11 @@ extension String {
     }
 }
 
-extension Data {
-    init(url string: String) throws {
-        guard let url = URL(string: string) else {
-            throw "Unable to initiate URL structure from \(string)."
+extension Array {
+    var hasContent: Bool {
+        get {
+            return !self.isEmpty
         }
-        try self.init(contentsOf: url)
     }
 }
 
@@ -48,7 +49,25 @@ extension Reactive where Base == UICollectionView {
 }
 
 extension UIImageView {
-    func clear() {
-        image = nil
+    public func gif(url string: String, completionHandler: @escaping (UIImage?) -> Void) {
+        backgroundThread(qos: .userInteractive) {
+            let image = UIImage.gif(url: string)
+            mainThread {
+                self.image = image
+                completionHandler(image)
+            }
+        }
+    }
+}
+
+extension NSCache where KeyType == NSString, ObjectType == UIImage {
+    func get(forKey key: String) -> UIImage? {
+        return object(forKey: NSString(string: key))
+    }
+
+    func set(_ image: UIImage?, forKey key: String) {
+        if let image = image {
+            setObject(image, forKey: NSString(string: key))
+        }
     }
 }

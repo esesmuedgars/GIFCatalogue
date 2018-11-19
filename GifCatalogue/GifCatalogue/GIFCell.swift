@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Gifu
 
 @IBDesignable
 final class GIFCell: UICollectionViewCell {
@@ -19,32 +18,24 @@ final class GIFCell: UICollectionViewCell {
         }
     }
 
-	@IBOutlet private weak var imageView: GIFImageView!
+	@IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        imageView.clear()
         activityIndicator.startAnimating()
+        imageView.image = nil
     }
 
     func configure(url string: String) {
-        if let data = cache.object(forKey: string as NSString) as Data? {
-            self.imageView.animate(withGIFData: data)
+        if let image = cache.get(forKey: string) {
+            imageView.image = image
+            activityIndicator.stopAnimating()
         } else {
-            backgroundThread(qos: .userInteractive) {
-                if let data = try? Data(url: string) {
-                    mainThread {
-                        cache.setObject(data as NSData, forKey: string as NSString)
-                        self.imageView.animate(withGIFData: data)
-                        self.activityIndicator.stopAnimating()
-                    }
-                }
+            imageView.gif(url: string) { [weak self] image in
+                cache.set(image, forKey: string)
+                self?.activityIndicator.stopAnimating()
             }
         }
     }
 }
-
-let cache = NSCache<NSString, NSData>()
-
-

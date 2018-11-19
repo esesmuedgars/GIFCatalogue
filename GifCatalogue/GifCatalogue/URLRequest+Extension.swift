@@ -9,12 +9,12 @@
 import Foundation
 
 extension URLRequest {
-    private static var URL_BASE: String {
+    private static var Base: String {
         return "https://api.giphy.com/v1/gifs/search"
     }
 
     init(with parameters: [URLQueryItem]) {
-        let url = URL(string: URLRequest.URL_BASE)!
+        let url = URL(string: URLRequest.Base)!
         var components = URLComponents(url: url, resolvingAgainstBaseURL: false)!
         components.queryItems = parameters
 
