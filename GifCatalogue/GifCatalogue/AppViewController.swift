@@ -40,14 +40,14 @@ final class AppViewController: UIViewController {
     private func addHandlers() {
         textField.rx.text.orEmpty.skip(1)
             .debounce(0.5, scheduler:  MainScheduler.instance)
-            .flatMap { [unowned self] query -> Observable<[Data]> in
+            .flatMap { [unowned self] query -> Observable<[String]> in
                 if query.hasContent {
                     return self.viewModel.fetch(query: query)
                 } else {
                     return self.viewModel.clearItems()
                 }
-            }.bind(to: collectionView.rx.items(cellIdentifier: "GIFCell")) { (_, data, cell: GIFCell) in
-                cell.configure(data: data)
+            }.bind(to: collectionView.rx.items(cellType: GIFCell.self)) { (_, source, cell) in
+                cell.configure(url: source)
             }.disposed(by: viewModel.disposeBag)
     }
     

@@ -24,11 +24,27 @@ final class GIFCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
+        imageView.clear()
         activityIndicator.startAnimating()
     }
-    
-    func configure(data: Data) {
-        imageView.prepareForAnimation(withGIFData: data)
-        imageView.startAnimatingGIF()
+
+    func configure(url string: String) {
+        if let data = cache.object(forKey: string as NSString) as Data? {
+            self.imageView.animate(withGIFData: data)
+        } else {
+            backgroundThread(qos: .userInteractive) {
+                if let data = try? Data(url: string) {
+                    mainThread {
+                        cache.setObject(data as NSData, forKey: string as NSString)
+                        self.imageView.animate(withGIFData: data)
+                        self.activityIndicator.stopAnimating()
+                    }
+                }
+            }
+        }
     }
 }
+
+let cache = NSCache<NSString, NSData>()
+
+

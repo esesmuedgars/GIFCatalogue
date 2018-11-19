@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct GIPHYResponse: Codable {
+struct GIPHYResponse: Decodable {
     private var data: [GIPHYData]
 
     var urls: [String] {
@@ -16,18 +16,18 @@ struct GIPHYResponse: Codable {
     }
 }
 
-private struct GIPHYData: Codable {
+private struct GIPHYData: Decodable {
     var images: GIPHYImage
 }
 
-private struct GIPHYImage: Codable {
+private struct GIPHYImage: Decodable {
     var preview: GIPHYPreview
 
     enum CodingKeys: String, CodingKey {
-        case preview = "fixed_width_downsampled"
+        case preview = "fixed_width"
     }
 }
 
-private struct GIPHYPreview: Codable {
+private struct GIPHYPreview: Decodable {
     var url: String
 }

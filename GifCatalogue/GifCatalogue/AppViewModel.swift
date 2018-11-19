@@ -14,22 +14,20 @@ final class AppViewModel {
     private var apiService: APIServiceProtocol
     lazy var disposeBag = DisposeBag()
 
-    private let images: Variable<[Data]> = Variable([])
+    private let images: Variable<[String]> = Variable([])
     var itemsLoaded = false
 
     init(apiService: APIServiceProtocol = APIService()) {
         self.apiService = apiService
     }
 
-    func fetch(query: String) -> Observable<[Data]> {
+    func fetch(query: String) -> Observable<[String]> {
         itemsLoaded = false
 
         apiService.fetchGIFs(query: query, offset: images.value.count)
             .map { [weak self] response in
                 for url in response.urls {
-                    if let data = try? Data(url: url) {
-                        self?.images.value.append(data)
-                    }
+                    self?.images.value.append(url)
                 }
             }.subscribe { [weak self] event in
                 self?.itemsLoaded = event.isCompleted
@@ -38,11 +36,11 @@ final class AppViewModel {
         return images.asObservable()
     }
 
-    func item(_ indexPath: IndexPath) -> Data {
+    func item(_ indexPath: IndexPath) -> String {
         return images.value[indexPath.row]
     }
 
-    func clearItems() -> Observable<[Data]> {
+    func clearItems() -> Observable<[String]> {
         images.value.removeAll()
 
         return images.asObservable()

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import RxSwift
+import UIKit
 
 extension String: Error {}
 
@@ -16,6 +18,10 @@ extension String: LocalizedError {
 
 func mainThread(_ executable: @escaping () -> Void) {
     DispatchQueue.main.async(execute: executable)
+}
+
+func backgroundThread(qos: DispatchQoS.QoSClass, _ executable: @escaping () -> Void) {
+    DispatchQueue.global(qos: qos).async(execute: executable)
 }
 
 extension String {
@@ -32,5 +38,17 @@ extension Data {
             throw "Unable to initiate URL structure from \(string)."
         }
         try self.init(contentsOf: url)
+    }
+}
+
+extension Reactive where Base == UICollectionView {
+    public func items<S, Cell, O>(cellType: Cell.Type) -> (O) -> (@escaping (Int, S.Iterator.Element, Cell) -> Void) -> Disposable where S : Sequence, S == O.E, Cell : UICollectionViewCell, O : ObservableType {
+        return self.items(cellIdentifier: String(describing: cellType), cellType: cellType)
+    }
+}
+
+extension UIImageView {
+    func clear() {
+        image = nil
     }
 }
