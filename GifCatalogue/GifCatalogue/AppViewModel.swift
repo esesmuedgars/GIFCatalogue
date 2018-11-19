@@ -26,8 +26,8 @@ final class AppViewModel {
 
         apiService.fetchGIFs(query: query, offset: images.value.count)
             .map { [weak self] response in
-                for url in response.urls {
-                    if let data = try? Data(url: url) {
+                for media in response {
+                    if let data = try? Data(url: media.url) {
                         self?.images.value.append(data)
                     }
                 }

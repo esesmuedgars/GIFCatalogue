@@ -11,9 +11,8 @@
 		724D3B0721A0B2510004F670 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724D3B0621A0B2510004F670 /* RxCocoa.framework */; };
 		724D3B0921A0D9D30004F670 /* Gifu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724D3B0821A0D9D30004F670 /* Gifu.framework */; };
 		725709C9219F71A400C6B357 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725709C8219F71A400C6B357 /* AppViewModel.swift */; };
-		725709CB219F744300C6B357 /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725709CA219F744300C6B357 /* URLRequest+Extension.swift */; };
 		725709CD219F855700C6B357 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725709CC219F855700C6B357 /* Convenience.swift */; };
-		725709D0219F9C1C00C6B357 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725709CF219F9C1C00C6B357 /* DataModel.swift */; };
+		72B8547421A2263A00126565 /* GiphyCoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72B8547321A2263A00126565 /* GiphyCoreSDK.framework */; };
 		A5319FA12010EBE4006401B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5319FA02010EBE4006401B8 /* AppDelegate.swift */; };
 		A5319FA32010EBE4006401B8 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5319FA22010EBE4006401B8 /* AppViewController.swift */; };
 		A5319FA62010EBE4006401B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5319FA42010EBE4006401B8 /* Main.storyboard */; };
@@ -39,9 +38,8 @@
 		724D3B0621A0B2510004F670 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		724D3B0821A0D9D30004F670 /* Gifu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gifu.framework; path = Carthage/Build/iOS/Gifu.framework; sourceTree = "<group>"; };
 		725709C8219F71A400C6B357 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
-		725709CA219F744300C6B357 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
 		725709CC219F855700C6B357 /* Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
-		725709CF219F9C1C00C6B357 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		72B8547321A2263A00126565 /* GiphyCoreSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GiphyCoreSDK.framework; path = Carthage/Build/iOS/GiphyCoreSDK.framework; sourceTree = "<group>"; };
 		A5319F9D2010EBE4006401B8 /* GifCatalogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifCatalogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5319FA02010EBE4006401B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5319FA22010EBE4006401B8 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72B8547421A2263A00126565 /* GiphyCoreSDK.framework in Frameworks */,
 				724D3B0921A0D9D30004F670 /* Gifu.framework in Frameworks */,
 				724D3B0721A0B2510004F670 /* RxCocoa.framework in Frameworks */,
 				724D3B0421A09EDA0004F670 /* RxSwift.framework in Frameworks */,
@@ -80,6 +79,7 @@
 		724D3B0221A09EDA0004F670 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				72B8547321A2263A00126565 /* GiphyCoreSDK.framework */,
 				724D3B0821A0D9D30004F670 /* Gifu.framework */,
 				724D3B0621A0B2510004F670 /* RxCocoa.framework */,
 				724D3B0321A09EDA0004F670 /* RxSwift.framework */,
@@ -112,9 +112,7 @@
 				725709C8219F71A400C6B357 /* AppViewModel.swift */,
 				A5319FA22010EBE4006401B8 /* AppViewController.swift */,
 				A586EE85201631B900530BE2 /* APIService.swift */,
-				725709CF219F9C1C00C6B357 /* DataModel.swift */,
 				A5390C5220187A4900EC59E0 /* GIFCell.swift */,
-				725709CA219F744300C6B357 /* URLRequest+Extension.swift */,
 				725709CC219F855700C6B357 /* Convenience.swift */,
 				A5319FAC2010EBE4006401B8 /* Info.plist */,
 				A5319FA42010EBE4006401B8 /* Main.storyboard */,
@@ -247,6 +245,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Gifu.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/GiphyCoreSDK.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -254,6 +253,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Gifu.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/GiphyCoreSDK.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -266,14 +266,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				725709CB219F744300C6B357 /* URLRequest+Extension.swift in Sources */,
 				725709CD219F855700C6B357 /* Convenience.swift in Sources */,
 				A5390C5320187A4900EC59E0 /* GIFCell.swift in Sources */,
 				A586EE86201631B900530BE2 /* APIService.swift in Sources */,
 				725709C9219F71A400C6B357 /* AppViewModel.swift in Sources */,
 				A5319FA32010EBE4006401B8 /* AppViewController.swift in Sources */,
 				A5319FA12010EBE4006401B8 /* AppDelegate.swift in Sources */,
-				725709D0219F9C1C00C6B357 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

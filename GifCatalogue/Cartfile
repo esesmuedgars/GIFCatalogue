@@ -1,2 +1,3 @@
 github "ReactiveX/RxSwift" ~> 4.0
 github "kaishin/Gifu" ~> 3.0
+github "Giphy/giphy-ios-sdk-core" ~> 1.3

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GiphyCoreSDK
 
 extension String: Error {}
 
@@ -27,10 +28,25 @@ extension String {
 }
 
 extension Data {
-    init(url string: String) throws {
+    init(url string: String?) throws {
         guard let url = URL(string: string) else {
-            throw "Unable to initiate URL structure from \(string)."
+            throw "Unable to initiate URL structure from \(String(describing: string))."
         }
         try self.init(contentsOf: url)
+    }
+}
+
+extension URL {
+    init?(string: String?) {
+        guard let string = string else { return nil }
+        self.init(string: string)
+    }
+}
+
+extension GPHMedia {
+    var url: String? {
+        get {
+            return images?.fixedWidth?.gifUrl
+        }
     }
 }
