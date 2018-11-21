@@ -48,8 +48,4 @@ final class AppViewModel {
     func numberOfItems() -> Int {
         return items.value.count
     }
-
-    func d() -> Bool {
-        return items.value.hasContent
-    }
 }
