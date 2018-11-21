@@ -27,7 +27,6 @@
 /* Begin PBXFileReference section */
 		724D3B0321A09EDA0004F670 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		724D3B0621A0B2510004F670 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		724D3B0821A0D9D30004F670 /* Gifu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gifu.framework; path = Carthage/Build/iOS/Gifu.framework; sourceTree = "<group>"; };
 		725709C8219F71A400C6B357 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		725709CA219F744300C6B357 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
 		725709CC219F855700C6B357 /* Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
@@ -83,7 +82,6 @@
 		724D3B0221A09EDA0004F670 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				724D3B0821A0D9D30004F670 /* Gifu.framework */,
 				724D3B0621A0B2510004F670 /* RxCocoa.framework */,
 				724D3B0321A09EDA0004F670 /* RxSwift.framework */,
 			);

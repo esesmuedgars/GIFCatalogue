@@ -37,16 +37,15 @@ struct APIService: APIServiceProtocol {
                         throw "Fetch GIFs API call returned no data."
                     }
 
-                    guard 200 ... 299 ~= response.statusCode else {
-                        throw "Expected response status code in range between 200 - 299, but received \(response.statusCode)."
+                    guard 200 ... 300 ~= response.statusCode else {
+                        throw "Expected response success status code, but received \(response.statusCode)."
                     }
 
                     observer.onNext(try JSONDecoder().decode(GIPHYResponse.self, from: data))
+                    observer.onCompleted()
                 } catch {
                     observer.onError(error)
                 }
-
-                observer.onCompleted()
             }
             task.resume()
 
