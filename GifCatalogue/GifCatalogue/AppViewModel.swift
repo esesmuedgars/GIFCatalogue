@@ -15,36 +15,41 @@ final class AppViewModel {
     private(set) lazy var disposeBag = DisposeBag()
     private(set) lazy var didLoadItems = Bool()
 
-    private let images = Variable(Array<String>())
-    var observable: Observable<[String]> {
-        return images.asObservable()
+    private let items = Variable(Array<String>())
+    var observableItems: Observable<[String]> {
+        return items.asObservable()
     }
+
+    lazy var shouldClearItems = Bool()
 
     init(apiService: APIServiceProtocol = APIService()) {
         self.apiService = apiService
     }
 
-    func fetch(query: String) -> Observable<[String]> {
+    func fetchItems(query: String) -> Observable<[String]> {
         didLoadItems = false
 
-        apiService.fetchGIFs(query: query, offset: images.value.count)
+        apiService.fetchGIFs(query: query, offset: items.value.count)
             .map { [weak self] response in
-                self?.images.value.append(contentsOf: response.urls)
+                self?.items.value.append(contentsOf: response.urls)
             }.subscribe { [weak self] event in
                 self?.didLoadItems = event.isCompleted
+                self?.shouldClearItems = true
             }.disposed(by: disposeBag)
 
-        return images.asObservable()
+        return observableItems
     }
 
-    func clearItems() -> Observable<[String]> {
-        images.value.removeAll()
-        cache.removeAllObjects()
-
-        return images.asObservable()
+    func clearItems() {
+        items.value.removeAll()
+        CacheManager.shared.cache.removeAllObjects()
     }
 
     func numberOfItems() -> Int {
-        return images.value.count
+        return items.value.count
+    }
+
+    func d() -> Bool {
+        return items.value.hasContent
     }
 }

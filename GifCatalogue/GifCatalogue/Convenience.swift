@@ -10,8 +10,6 @@ import Foundation
 import RxSwift
 import UIKit
 
-let cache = NSCache<NSString, UIImage>()
-
 extension String: Error {}
 
 extension String: LocalizedError {

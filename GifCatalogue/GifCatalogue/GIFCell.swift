@@ -28,12 +28,12 @@ final class GIFCell: UICollectionViewCell {
     }
 
     func configure(url string: String) {
-        if let image = cache.get(forKey: string) {
+        if let image = CacheManager.shared.cache.get(forKey: string) {
             imageView.image = image
             activityIndicator.stopAnimating()
         } else {
             imageView.gif(url: string) { [weak self] image in
-                cache.set(image, forKey: string)
+                CacheManager.shared.cache.set(image, forKey: string)
                 self?.activityIndicator.stopAnimating()
             }
         }

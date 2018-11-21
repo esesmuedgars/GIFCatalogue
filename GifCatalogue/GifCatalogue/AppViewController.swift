@@ -27,17 +27,17 @@ final class AppViewController: UIViewController {
     private func addHandlers() {
         textField.rx.text.orEmpty.skip(1)
             .debounce(0.5, scheduler: MainScheduler.instance)
-            .flatMapLatest { query -> Observable<[String]> in
-                if query.hasContent {
-                    return self.viewModel.fetch(query: query)
-                } else {
-                    return self.viewModel.clearItems()
+            .flatMapLatest { [viewModel] query -> Observable<[String]> in
+                if viewModel.shouldClearItems {
+                    viewModel.clearItems()
                 }
+
+                return viewModel.fetchItems(query: query)
             }.bind(to: collectionView.rx.items(cellType: GIFCell.self)) { (_, source, cell) in
                 cell.configure(url: source)
             }.disposed(by: viewModel.disposeBag)
 
-        viewModel.observable.map { $0.hasContent }
+        viewModel.observableItems.map { $0.hasContent }
             .bind(to: noDataLabel.rx.isHidden)
             .disposed(by: viewModel.disposeBag)
     }
@@ -47,34 +47,31 @@ final class AppViewController: UIViewController {
 
         collectionView.collectionViewLayout.invalidateLayout()
     }
+
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        guard textField.isFirstResponder else { return }
+        
+        textField.resignFirstResponder()
+    }
 }
 
-// MARK: CollectionView Delegate
+// MARK: Collection Delegate
 
 extension AppViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == viewModel.numberOfItems() - 1 && viewModel.didLoadItems {
+            viewModel.shouldClearItems = false
             textField.sendActions(for: .editingDidEnd)
         }
     }
 }
 
-// MARK: CollectionView DelegateFlowLayout
+// MARK: Collection DelegateFlowLayout
 
 extension AppViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = (collectionView.frame.width - 30) / 2
 
         return CGSize(width: size, height: size)
-    }
-}
-
-// MARK: ScrollView Delegate
-
-extension AppViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard textField.isFirstResponder else { return }
-
-        textField.resignFirstResponder()
     }
 }

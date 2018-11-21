@@ -14,25 +14,15 @@
 		725709CD219F855700C6B357 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725709CC219F855700C6B357 /* Convenience.swift */; };
 		725709D0219F9C1C00C6B357 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725709CF219F9C1C00C6B357 /* DataModel.swift */; };
 		72A6E7A421A49FB500B8E63F /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A6E7A321A49FB500B8E63F /* UIImage+Extension.swift */; };
+		72A6E7A821A4D56400B8E63F /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A6E7A721A4D56400B8E63F /* CacheManager.swift */; };
 		A5319FA12010EBE4006401B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5319FA02010EBE4006401B8 /* AppDelegate.swift */; };
 		A5319FA32010EBE4006401B8 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5319FA22010EBE4006401B8 /* AppViewController.swift */; };
 		A5319FA62010EBE4006401B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5319FA42010EBE4006401B8 /* Main.storyboard */; };
 		A5319FA82010EBE4006401B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5319FA72010EBE4006401B8 /* Assets.xcassets */; };
 		A5319FAB2010EBE4006401B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5319FA92010EBE4006401B8 /* LaunchScreen.storyboard */; };
-		A5319FB62010EBE4006401B8 /* GifCatalogueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5319FB52010EBE4006401B8 /* GifCatalogueTests.swift */; };
 		A5390C5320187A4900EC59E0 /* GIFCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5390C5220187A4900EC59E0 /* GIFCell.swift */; };
 		A586EE86201631B900530BE2 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586EE85201631B900530BE2 /* APIService.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		A5319FB22010EBE4006401B8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A5319F952010EBE4006401B8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A5319F9C2010EBE4006401B8;
-			remoteInfo = GifCatalogue;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		724D3B0321A09EDA0004F670 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
@@ -43,6 +33,7 @@
 		725709CC219F855700C6B357 /* Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		725709CF219F9C1C00C6B357 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		72A6E7A321A49FB500B8E63F /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		72A6E7A721A4D56400B8E63F /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		A5319F9D2010EBE4006401B8 /* GifCatalogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifCatalogue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5319FA02010EBE4006401B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5319FA22010EBE4006401B8 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
@@ -50,9 +41,6 @@
 		A5319FA72010EBE4006401B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5319FAA2010EBE4006401B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5319FAC2010EBE4006401B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5319FB12010EBE4006401B8 /* GifCatalogueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GifCatalogueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5319FB52010EBE4006401B8 /* GifCatalogueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifCatalogueTests.swift; sourceTree = "<group>"; };
-		A5319FB72010EBE4006401B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5390C5220187A4900EC59E0 /* GIFCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFCell.swift; sourceTree = "<group>"; };
 		A586EE85201631B900530BE2 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,16 +55,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A5319FAE2010EBE4006401B8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		720C66E321A4E5D00009C22A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A586EE85201631B900530BE2 /* APIService.swift */,
+				725709CF219F9C1C00C6B357 /* DataModel.swift */,
+				725709CA219F744300C6B357 /* URLRequest+Extension.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		720C66E421A4E5FB0009C22A /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A5319FA02010EBE4006401B8 /* AppDelegate.swift */,
+				A5319FAC2010EBE4006401B8 /* Info.plist */,
+				A5319FA42010EBE4006401B8 /* Main.storyboard */,
+				A5319FA92010EBE4006401B8 /* LaunchScreen.storyboard */,
+				A5319FA72010EBE4006401B8 /* Assets.xcassets */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		724D3B0221A09EDA0004F670 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				A5319F9F2010EBE4006401B8 /* GifCatalogue */,
-				A5319FB42010EBE4006401B8 /* GifCatalogueTests */,
 				A5319F9E2010EBE4006401B8 /* Products */,
 				724D3B0221A09EDA0004F670 /* Frameworks */,
 			);
@@ -101,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				A5319F9D2010EBE4006401B8 /* GifCatalogue.app */,
-				A5319FB12010EBE4006401B8 /* GifCatalogueTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,28 +112,14 @@
 			children = (
 				725709C8219F71A400C6B357 /* AppViewModel.swift */,
 				A5319FA22010EBE4006401B8 /* AppViewController.swift */,
-				A586EE85201631B900530BE2 /* APIService.swift */,
-				725709CF219F9C1C00C6B357 /* DataModel.swift */,
 				A5390C5220187A4900EC59E0 /* GIFCell.swift */,
-				725709CA219F744300C6B357 /* URLRequest+Extension.swift */,
-				72A6E7A321A49FB500B8E63F /* UIImage+Extension.swift */,
+				72A6E7A721A4D56400B8E63F /* CacheManager.swift */,
 				725709CC219F855700C6B357 /* Convenience.swift */,
-				A5319FAC2010EBE4006401B8 /* Info.plist */,
-				A5319FA42010EBE4006401B8 /* Main.storyboard */,
-				A5319FA92010EBE4006401B8 /* LaunchScreen.storyboard */,
-				A5319FA72010EBE4006401B8 /* Assets.xcassets */,
-				A5319FA02010EBE4006401B8 /* AppDelegate.swift */,
+				72A6E7A321A49FB500B8E63F /* UIImage+Extension.swift */,
+				720C66E321A4E5D00009C22A /* Network */,
+				720C66E421A4E5FB0009C22A /* Support */,
 			);
 			path = GifCatalogue;
-			sourceTree = "<group>";
-		};
-		A5319FB42010EBE4006401B8 /* GifCatalogueTests */ = {
-			isa = PBXGroup;
-			children = (
-				A5319FB52010EBE4006401B8 /* GifCatalogueTests.swift */,
-				A5319FB72010EBE4006401B8 /* Info.plist */,
-			);
-			path = GifCatalogueTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,24 +143,6 @@
 			productReference = A5319F9D2010EBE4006401B8 /* GifCatalogue.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A5319FB02010EBE4006401B8 /* GifCatalogueTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A5319FBD2010EBE4006401B8 /* Build configuration list for PBXNativeTarget "GifCatalogueTests" */;
-			buildPhases = (
-				A5319FAD2010EBE4006401B8 /* Sources */,
-				A5319FAE2010EBE4006401B8 /* Frameworks */,
-				A5319FAF2010EBE4006401B8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A5319FB32010EBE4006401B8 /* PBXTargetDependency */,
-			);
-			name = GifCatalogueTests;
-			productName = GifCatalogueTests;
-			productReference = A5319FB12010EBE4006401B8 /* GifCatalogueTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -188,12 +157,6 @@
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
-					};
-					A5319FB02010EBE4006401B8 = {
-						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1010;
-						ProvisioningStyle = Automatic;
-						TestTargetID = A5319F9C2010EBE4006401B8;
 					};
 				};
 			};
@@ -211,7 +174,6 @@
 			projectRoot = "";
 			targets = (
 				A5319F9C2010EBE4006401B8 /* GifCatalogue */,
-				A5319FB02010EBE4006401B8 /* GifCatalogueTests */,
 			);
 		};
 /* End PBXProject section */
@@ -224,13 +186,6 @@
 				A5319FAB2010EBE4006401B8 /* LaunchScreen.storyboard in Resources */,
 				A5319FA82010EBE4006401B8 /* Assets.xcassets in Resources */,
 				A5319FA62010EBE4006401B8 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A5319FAF2010EBE4006401B8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,29 +226,14 @@
 				72A6E7A421A49FB500B8E63F /* UIImage+Extension.swift in Sources */,
 				A586EE86201631B900530BE2 /* APIService.swift in Sources */,
 				725709C9219F71A400C6B357 /* AppViewModel.swift in Sources */,
+				72A6E7A821A4D56400B8E63F /* CacheManager.swift in Sources */,
 				A5319FA32010EBE4006401B8 /* AppViewController.swift in Sources */,
 				A5319FA12010EBE4006401B8 /* AppDelegate.swift in Sources */,
 				725709D0219F9C1C00C6B357 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A5319FAD2010EBE4006401B8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A5319FB62010EBE4006401B8 /* GifCatalogueTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A5319FB32010EBE4006401B8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A5319F9C2010EBE4006401B8 /* GifCatalogue */;
-			targetProxy = A5319FB22010EBE4006401B8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A5319FA42010EBE4006401B8 /* Main.storyboard */ = {
@@ -436,7 +376,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = GifCatalogue/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GifCatalogue/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edgarsvanags.gifcatalogue.GifCatalogue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -455,46 +395,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = GifCatalogue/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/GifCatalogue/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edgarsvanags.gifcatalogue.GifCatalogue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		A5319FBE2010EBE4006401B8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RB8S8SFW6F;
-				INFOPLIST_FILE = GifCatalogueTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.edgarsvanags.gifcatalogue.GifCatalogueTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GifCatalogue.app/GifCatalogue";
-			};
-			name = Debug;
-		};
-		A5319FBF2010EBE4006401B8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RB8S8SFW6F;
-				INFOPLIST_FILE = GifCatalogueTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.edgarsvanags.gifcatalogue.GifCatalogueTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GifCatalogue.app/GifCatalogue";
 			};
 			name = Release;
 		};
@@ -515,15 +421,6 @@
 			buildConfigurations = (
 				A5319FBB2010EBE4006401B8 /* Debug */,
 				A5319FBC2010EBE4006401B8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A5319FBD2010EBE4006401B8 /* Build configuration list for PBXNativeTarget "GifCatalogueTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A5319FBE2010EBE4006401B8 /* Debug */,
-				A5319FBF2010EBE4006401B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
