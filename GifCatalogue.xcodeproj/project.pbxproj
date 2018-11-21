@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72164F9E21A594F4004545AA /* AppViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72164F9D21A594F4004545AA /* AppViewModelTests.swift */; };
+		72164FA621A59578004545AA /* APIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72164FA521A59578004545AA /* APIServiceMock.swift */; };
+		72164FAB21A598D1004545AA /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724D3B0321A09EDA0004F670 /* RxSwift.framework */; };
+		72164FAC21A59976004545AA /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 724D3B0321A09EDA0004F670 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		724D3B0421A09EDA0004F670 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724D3B0321A09EDA0004F670 /* RxSwift.framework */; };
 		724D3B0721A0B2510004F670 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 724D3B0621A0B2510004F670 /* RxCocoa.framework */; };
 		725709C9219F71A400C6B357 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725709C8219F71A400C6B357 /* AppViewModel.swift */; };
@@ -24,7 +28,34 @@
 		A586EE86201631B900530BE2 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A586EE85201631B900530BE2 /* APIService.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		72164FA021A594F4004545AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5319F952010EBE4006401B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5319F9C2010EBE4006401B8;
+			remoteInfo = GifCatalogue;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		72164FA821A597FD004545AA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				72164FAC21A59976004545AA /* RxSwift.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		72164F9B21A594F4004545AA /* GifCatalogueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GifCatalogueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		72164F9D21A594F4004545AA /* AppViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModelTests.swift; sourceTree = "<group>"; };
+		72164F9F21A594F4004545AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72164FA521A59578004545AA /* APIServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceMock.swift; sourceTree = "<group>"; };
 		724D3B0321A09EDA0004F670 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		724D3B0621A0B2510004F670 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		725709C8219F71A400C6B357 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
@@ -45,6 +76,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		72164F9821A594F4004545AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72164FAB21A598D1004545AA /* RxSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5319F9A2010EBE4006401B8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -79,6 +118,16 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		72164F9C21A594F4004545AA /* GifCatalogueTests */ = {
+			isa = PBXGroup;
+			children = (
+				72164FA521A59578004545AA /* APIServiceMock.swift */,
+				72164F9D21A594F4004545AA /* AppViewModelTests.swift */,
+				72164F9F21A594F4004545AA /* Info.plist */,
+			);
+			path = GifCatalogueTests;
+			sourceTree = "<group>";
+		};
 		724D3B0221A09EDA0004F670 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				A5319F9F2010EBE4006401B8 /* GifCatalogue */,
+				72164F9C21A594F4004545AA /* GifCatalogueTests */,
 				A5319F9E2010EBE4006401B8 /* Products */,
 				724D3B0221A09EDA0004F670 /* Frameworks */,
 			);
@@ -101,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				A5319F9D2010EBE4006401B8 /* GifCatalogue.app */,
+				72164F9B21A594F4004545AA /* GifCatalogueTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,6 +174,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		72164F9A21A594F4004545AA /* GifCatalogueTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72164FA421A594F4004545AA /* Build configuration list for PBXNativeTarget "GifCatalogueTests" */;
+			buildPhases = (
+				72164F9721A594F4004545AA /* Sources */,
+				72164F9821A594F4004545AA /* Frameworks */,
+				72164F9921A594F4004545AA /* Resources */,
+				72164FA821A597FD004545AA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				72164FA121A594F4004545AA /* PBXTargetDependency */,
+			);
+			name = GifCatalogueTests;
+			productName = GifCatalogueTests;
+			productReference = 72164F9B21A594F4004545AA /* GifCatalogueTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A5319F9C2010EBE4006401B8 /* GifCatalogue */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5319FBA2010EBE4006401B8 /* Build configuration list for PBXNativeTarget "GifCatalogue" */;
@@ -147,10 +217,15 @@
 		A5319F952010EBE4006401B8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = edgarsvanags;
 				TargetAttributes = {
+					72164F9A21A594F4004545AA = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A5319F9C2010EBE4006401B8;
+					};
 					A5319F9C2010EBE4006401B8 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 1010;
@@ -172,11 +247,19 @@
 			projectRoot = "";
 			targets = (
 				A5319F9C2010EBE4006401B8 /* GifCatalogue */,
+				72164F9A21A594F4004545AA /* GifCatalogueTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		72164F9921A594F4004545AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5319F9B2010EBE4006401B8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -214,6 +297,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		72164F9721A594F4004545AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72164FA621A59578004545AA /* APIServiceMock.swift in Sources */,
+				72164F9E21A594F4004545AA /* AppViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5319F992010EBE4006401B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -232,6 +324,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		72164FA121A594F4004545AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5319F9C2010EBE4006401B8 /* GifCatalogue */;
+			targetProxy = 72164FA021A594F4004545AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A5319FA42010EBE4006401B8 /* Main.storyboard */ = {
@@ -253,6 +353,53 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		72164FA221A594F4004545AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88TYD9CU33;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = GifCatalogueTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = esesmuedgars.GifCatalogueTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GifCatalogue.app/GifCatalogue";
+			};
+			name = Debug;
+		};
+		72164FA321A594F4004545AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88TYD9CU33;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = GifCatalogueTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = esesmuedgars.GifCatalogueTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GifCatalogue.app/GifCatalogue";
+			};
+			name = Release;
+		};
 		A5319FB82010EBE4006401B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -405,6 +552,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		72164FA421A594F4004545AA /* Build configuration list for PBXNativeTarget "GifCatalogueTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72164FA221A594F4004545AA /* Debug */,
+				72164FA321A594F4004545AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A5319F982010EBE4006401B8 /* Build configuration list for PBXProject "GifCatalogue" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
