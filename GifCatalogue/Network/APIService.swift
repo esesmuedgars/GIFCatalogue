@@ -37,7 +37,7 @@ struct APIService: APIServiceProtocol {
                         throw "Fetch GIFs API call returned no data."
                     }
 
-                    guard 200 ... 300 ~= response.statusCode else {
+                    guard 200 ..< 300 ~= response.statusCode else {
                         throw "Expected response success status code, but received \(response.statusCode)."
                     }
 
